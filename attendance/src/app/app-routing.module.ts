@@ -12,17 +12,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'roster',
-    loadChildren: () => import('./roster/roster.module').then( m => m.RosterPageModule)
+    path: 'movieList',
+    loadChildren: () => import('./movie-list/movie-list.module').then( m => m.MovieListPageModule)
   },
   {
-    path: 'student-info',
-    loadChildren: () => import('./student-info/student-info.module').then( m => m.StudentInfoPageModule)
-  },
-  {
-    path: 'movies-list',
-    loadChildren: () => import('./movies-list/movies-list.module').then( m => m.MoviesListPageModule)
-  },
+    path: 'movie-info',
+    loadChildren: () => import('./movie-info/movie-info.module').then( m => m.MovieInfoPageModule)
+  }
 ];
 
 @NgModule({

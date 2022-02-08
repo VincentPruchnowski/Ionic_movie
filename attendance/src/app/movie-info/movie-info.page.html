@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/movieList"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{movie?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Title</ion-label>
+    <ion-input [value]="movie.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Réalisateur</ion-label>
+    <ion-input [value]="movie.directorName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Date de sortie</ion-label>
+    <ion-input type="date" [value]="movie.releaseDate"></ion-input>
+  </ion-item>
+</ion-content>

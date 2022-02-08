@@ -16,7 +16,7 @@ export class AppComponent {
   public selectedIndex: number = 0;
   public appPages: Page[] = [
     { title: 'Accueil', url: '/home', icon: 'home' },
-    { title: 'Etudiants', url: '/roster', icon: 'people' },
+    { title: 'Films', url: '/movieList', icon: 'people' },
   ]
 
   constructor() { }

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Liste</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list> 
+    <ion-item *ngFor="let movie of movies">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="movie.photoUrl"></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{movie.title}}</ion-label>
+      <ion-icon *ngIf="movie.status==='see'" slot="end" name="eye"></ion-icon>
+      <ion-icon *ngIf="movie.status==='mustSee'" slot="end" name="eye-off-outline"> </ion-icon>
+      <ion-button (click)="presentActionSheet(movie)">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="showInfo(movie)">
+        <ion-icon slot="icon-ony" name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item-options side="end"> <ion-item-option color="danger">Delete </ion-item-option> </ion-item-options>
+  </ion-list>
+
+
+</ion-content>

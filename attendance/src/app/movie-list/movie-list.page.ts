@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Student, StudentService } from '../student.service';
+import { Movie, MoviesService } from '../movies.service';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-roster',
-  templateUrl: './roster.page.html',
-  styleUrls: ['./roster.page.scss'],
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.page.html',
+  styleUrls: ['./movie-list.page.scss'],
 })
-export class RosterPage implements OnInit {
-  public students: Student[];
+
+export class MovieList implements OnInit {
+  public movies: Movie[];
 
   constructor(
-    private studentService: StudentService,
+    private moviesService: MoviesService,
     private actionSheetController: ActionSheetController,
     private alertController: AlertController,
     private toastController: ToastController,
@@ -21,37 +22,37 @@ export class RosterPage implements OnInit {
 
 
   ngOnInit() {
-    this.students = this.studentService.getAll();
+    this.movies = this.moviesService.getAll();
   }
 
 
   /**
  * Méthode d'ouverture de la popup d'actions sur un étudiant.
- * @param student
+ * @param movie
  */
-  async presentActionSheet(student: Student) {
+  async presentActionSheet(movie: Movie) {
     const actionSheet = await this.actionSheetController.create({
-      header: student.firstName + ' ' + student.lastName,
+      header: movie.title,
       buttons: [
         {
-          text: 'Marquer Présent',
+          text: 'Marquer vu',
           icon: 'eye',
           handler: () => {
-            student.status = 'present';
+            movie.status = 'see';
           },
         },
         {
-          text: 'Marquer Absent',
+          text: 'Marquer à voir',
           icon: 'eye-off-outline',
           handler: () => {
-            student.status = 'absent';
+            movie.status = 'mustSee';
           },
         },
         {
           text: 'Supprimer',
           icon: 'trash',
           role: 'destructive',
-          handler: () => this.presentDeleteAlert(student),
+          handler: () => this.presentDeleteAlert(movie),
         },
 
         {
@@ -70,17 +71,17 @@ export class RosterPage implements OnInit {
 
   /**
   * Méthode d'affichage de la suppression de l'étudiant.
-  * @param student
+  * @param movie
   */
-  private async presentDeleteAlert(student: Student) {
+  private async presentDeleteAlert(movie: Movie) {
     const alert = await this.alertController.create({
       header: 'Supprimer cet étudiant ?',
-      subHeader: `${student.firstName} ${student.lastName}`,
+      subHeader: `${movie.title}`,
       message: 'Cette opération ne pourra être annulée.',
       buttons: [
         {
           text: 'Supprimer',
-          handler: () => this.deleteStudent(student),
+          handler: () => this.deleteMovie(movie),
         },
         {
           text: 'Finalement non...',
@@ -94,21 +95,21 @@ export class RosterPage implements OnInit {
 
   /**
    * Méthode de suppression de l'étudiant..
-   * @param student
+   * @param movie
    */
-  async deleteStudent(student: Student) {
-    this.students = this.students.filter(
-      (studentDuTableau) => studentDuTableau.id !== student.id
+  async deleteMovie(movie: Movie) {
+    this.movies = this.movies.filter(
+      (movieDuTableau) => movieDuTableau.id !== movie.id
     );
     const toast = await this.toastController.create({
-      message: `${student.firstName} ${student.lastName} a été supprimé.`,
+      message: `${movie.title} a été supprimé.`,
       position: 'top',
       duration: 3000,
     });
     await toast.present();
   }
-  showInfo(student: Student) {
-    this.studentService.setCurrent(student);
-    this.router.navigateByUrl('student.info');
+  showInfo(movie: Movie) {
+    this.moviesService.setCurrent(movie);
+    this.router.navigateByUrl('movie-info');
   }
 }
