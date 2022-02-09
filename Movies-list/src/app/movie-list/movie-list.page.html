@@ -11,24 +11,93 @@
 </ion-header>
 
 <ion-content>
-  <ion-list> 
-    <ion-item *ngFor="let movie of movies">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="movie.photoUrl"></ion-img>
-      </ion-thumbnail>
-      <ion-label>{{movie.title}}</ion-label>
-      <ion-icon *ngIf="movie.status==='see'" slot="end" name="eye"></ion-icon>
-      <ion-icon *ngIf="movie.status==='mustSee'" slot="end" name="eye-off-outline"> </ion-icon>
-      <ion-icon *ngIf="movie.status==='favorites'" slot="end" name="heart"> </ion-icon>
-      <ion-button (click)="presentActionSheet(movie)">
-        <ion-icon slot="icon-only" name="ellipsis-horizontal-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="showInfo(movie)">
-        <ion-icon slot="icon-ony" name="chevron-forward-outline"></ion-icon>
-      </ion-button>
-    </ion-item>
-    <ion-item-options side="end"> <ion-item-option color="danger">Delete </ion-item-option> </ion-item-options>
-  </ion-list>
-
-
+  <ion-grid>
+    <ion-card>
+      <ion-list>
+        <ion-item *ngFor="let movie of movies">
+          <ion-thumbnail slot="start">
+            <ion-img class="displayed" [src]="movie.photoUrl"></ion-img>
+          </ion-thumbnail>
+          <ion-label>{{movie.title}}</ion-label>
+          <ion-icon
+            *ngIf="movie.status==='see'"
+            slot="end"
+            name="eye"
+          ></ion-icon>
+          <ion-icon
+            *ngIf="movie.status==='mustSee'"
+            slot="end"
+            name="eye-off-outline"
+          >
+          </ion-icon>
+          <ion-button (click)="presentActionSheet(movie)">
+            <ion-icon
+              slot="icon-only"
+              name="ellipsis-horizontal-outline"
+            ></ion-icon>
+          </ion-button>
+          <ion-button (click)="showInfo(movie)">
+            <ion-icon slot="icon-ony" name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger">Delete </ion-item-option>
+        </ion-item-options>
+      </ion-list>
+    </ion-card>
+  </ion-grid>
 </ion-content>
+
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col-4>
+        <ion-card>
+          <img
+            class="displayed"
+            height="150 px"
+            width="150 px"
+            src="/src/assets/images/rock2.jpg"
+          />
+          <ion-card-header>
+            <ion-card-title>Rocky II</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card>
+          <img
+            class="displayed"
+            height="150 px"
+            width="150 px"
+            src="/src/assets/images/rock2.jpg"
+          />
+          <ion-card-header>
+            <ion-card-title>Rocky II</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card>
+          <img
+            class="displayed"
+            height="150 px"
+            width="150 px"
+            src="/src/assets/images/rock.png"
+          />
+          <ion-card-header>
+            <ion-card-title>Rocky II</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col-4>
+    </ion-row>
+  </ion-grid> -->
+
+<!-- <ion-content padding>
+  <ion-grid *ngIf="movies">
+    <ion-row>
+      <ion-col col-4 *ngFor="let movie of movies">
+        <img [src]="movie.poster_path" (click)="goToDetail(movie)" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+<!-- </ion-content> -->
