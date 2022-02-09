@@ -8,7 +8,7 @@ export interface Movie {
   directorName?: string;
   directorName2?: string;
   photoUrl?: string;
-  status?: 'see' | 'mustSee';
+  status?: 'see' | 'mustSee' | 'favorites';
 }
 
 @Injectable({
