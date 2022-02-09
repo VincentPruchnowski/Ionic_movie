@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {Browser} from '@Capacitor/Browser'
+import { Browser } from '@Capacitor/Browser'
+import { Toast } from '@capacitor/toast';
 
 @Component({
   selector: 'app-home',
@@ -12,5 +13,11 @@ export class HomePage {
 
   async openUrl(pUrl: string) {
     await Browser.open({ url: pUrl });
+  }
+
+  async show() {
+    await Toast.show({
+      text: 'Hello!'
+    });
   }
 }
