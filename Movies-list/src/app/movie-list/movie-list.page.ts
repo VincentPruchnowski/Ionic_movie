@@ -56,6 +56,13 @@ export class MovieList implements OnInit {
           },
         },
         {
+          text: 'Supprimer des favoris',
+          icon: 'heart-dislike',
+          handler: () => {
+            movie.status = '';
+          },
+        },
+        {
           text: 'Supprimer',
           icon: 'trash',
           role: 'destructive',
