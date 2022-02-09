@@ -3,6 +3,7 @@ import { Movie, MoviesService } from '../movies.service';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-movie-list',
@@ -125,5 +126,14 @@ export class MovieList implements OnInit {
   showInfo(movie: Movie) {
     this.moviesService.setCurrent(movie);
     this.router.navigateByUrl('movie-info');
+  }
+
+  async shareMovie(movie: Movie) {
+    await Share.share({
+      title: 'Partager mon film',
+      text: 'Really awesome thing you need to see right meow',
+      url: 'http://ionicframework.com/',
+      dialogTitle: 'Share with buddies',
+    });
   }
 }

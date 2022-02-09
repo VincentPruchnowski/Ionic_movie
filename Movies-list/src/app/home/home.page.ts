@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Browser } from '@Capacitor/Browser'
 import { Toast } from '@capacitor/toast';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
