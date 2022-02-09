@@ -30,6 +30,11 @@
             name="eye-off-outline"
           >
           </ion-icon>
+          <ion-icon
+            *ngIf="movie.status==='favorites'"
+            slot="end"
+            name="heart"
+          ></ion-icon>
           <ion-button (click)="presentActionSheet(movie)">
             <ion-icon
               slot="icon-only"

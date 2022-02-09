@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'movie-info',
     loadChildren: () => import('./movie-info/movie-info.module').then( m => m.MovieInfoPageModule)
+  },  {
+    path: 'my-favorites',
+    loadChildren: () => import('./my-favorites/my-favorites.module').then( m => m.MyFavoritesPageModule)
   }
+
 ];
 
 @NgModule({

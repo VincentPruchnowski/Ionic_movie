@@ -17,6 +17,7 @@ export class AppComponent {
   public appPages: Page[] = [
     { title: 'Accueil', url: '/home', icon: 'home' },
     { title: 'Films', url: '/movieList', icon: 'people' },
+    { title: 'Favoris', url: '/my-favorites', icon: 'heart' }
   ]
 
   constructor() { }
