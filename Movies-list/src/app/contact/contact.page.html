@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>{{unAttribut}}</h1>
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="formulaire.nom"
+        name="nom"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Message</ion-label>
+      <ion-textarea
+        [(ngModel)]="formulaire.description"
+        name="description"
+        (keyup)="compte()"
+      ></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Envoyer</button>
+  </form>
+  <p>Nombre de caractères: {{nbCaractere}}</p>
+</ion-content>

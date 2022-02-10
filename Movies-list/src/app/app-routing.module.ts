@@ -21,6 +21,10 @@ const routes: Routes = [
   },  {
     path: 'my-favorites',
     loadChildren: () => import('./my-favorites/my-favorites.module').then( m => m.MyFavoritesPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
   }
 
 ];
