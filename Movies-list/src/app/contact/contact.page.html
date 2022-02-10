@@ -4,7 +4,7 @@
       <ion-menu-button button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="start"> </ion-buttons>
-    <ion-title>contact</ion-title>
+    <ion-title>Contact</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -27,7 +27,16 @@
         (keyup)="compte()"
       ></ion-textarea>
     </ion-item>
-    <button ion-button type="submit" block>Envoyer</button>
+    <ion-item>
+      <ion-label>Mobile</ion-label>
+      <ion-input
+        type="text"
+        required
+        [(ngModel)]="formulaire.mobile"
+        name="mobile"
+      ></ion-input>
+    </ion-item>
+    <ion-button type="submit" block>Envoyer</ion-button>
   </form>
   <p>Nombre de caractères: {{nbCaractere}}</p>
 </ion-content>

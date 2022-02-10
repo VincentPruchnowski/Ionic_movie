@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContactPage implements OnInit {
 
   unAttribut: string = "Formulaire de contact";
-  formulaire = { nom: "", description: "" };
+  formulaire = { nom: "", description: "", mobile:"" };
   nbCaractere = 0;
   constructor() {
   }
