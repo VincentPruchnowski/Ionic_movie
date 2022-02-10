@@ -6,6 +6,8 @@
 
 <ion-content>
   <div *ngFor="let movie of movies | favorite" >
-    <div *ngIf="movie.status === 'favorites'">{{movie.title}}</div>
+    <div *ngIf="movie.status === 'favorites'">{{movie.title}}<ion-thumbnail slot="start">
+      <ion-img class="displayed" [src]="movie.photoUrl"></ion-img>
+    </ion-thumbnail></div>
   </div>
 </ion-content>
