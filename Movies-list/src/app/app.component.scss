@@ -1,4 +1,15 @@
-ion-content {
-  --ion-background-color: #e7dddd !important;
+@media (prefers-color-scheme: dark) {
+  /*
+   * Dark Colors
+   * -------------------------------------------
+   */
+
+  body {
+    --ion-color-primary: #428cff;
+  }
+
 }
 
+// ion-content {
+//   --ion-background-color: #e7dddd !important;
+// }
