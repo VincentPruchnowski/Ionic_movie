@@ -28,7 +28,7 @@ export class MovieList implements OnInit {
 
 
   /**
- * Méthode d'ouverture de la popup d'actions sur un étudiant.
+ * Méthode d'ouverture de la popup d'actions sur un film.
  * @param movie
  */
   async presentActionSheet(movie: Movie) {
@@ -85,7 +85,7 @@ export class MovieList implements OnInit {
 
 
   /**
-  * Méthode d'affichage de la suppression de l'étudiant.
+  * Méthode d'affichage de la suppression d'un film.
   * @param movie
   */
   private async presentDeleteAlert(movie: Movie) {
@@ -109,7 +109,7 @@ export class MovieList implements OnInit {
 
 
   /**
-   * Méthode de suppression de l'étudiant..
+   * Méthode de suppression de film..
    * @param movie
    */
   async deleteMovie(movie: Movie) {
