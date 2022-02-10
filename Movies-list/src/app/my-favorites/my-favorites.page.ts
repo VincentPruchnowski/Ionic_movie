@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie, MoviesService } from './../movies.service';
 
 @Component({
   selector: 'app-my-favorites',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFavoritesPage implements OnInit {
 
-  constructor() { }
+  public movies:Movie[] = [];
+
+  constructor(private moviesService:MoviesService) { }
 
   ngOnInit() {
+    this.movies = this.moviesService.getAll();
   }
 
 }
