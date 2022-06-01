@@ -1,4 +1,4 @@
-# Ionic_movie
+# Ionic_movie / Cinémathèque
 
 Projet de groupe Ionic_application Olivier / Vincent / Victor / Lucas
 Thème général (Application de liste de films)
